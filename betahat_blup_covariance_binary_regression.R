@@ -200,6 +200,9 @@ level_means<-function(X,f,w,lambda){
 
 schall_covariance<-function(x,f1,f2,lambda_a_hat,lambda_b_hat,weight,
                                                  epsilon,max_iter=100,trace.it=TRUE){
+  #helper function for covariance
+  #it finds covariance by backfitting on each columns of X
+
   require("dplyr")
   require("tibble")
   
@@ -248,6 +251,7 @@ schall_covariance<-function(x,f1,f2,lambda_a_hat,lambda_b_hat,weight,
 
 
 var_betahat_glmm <-function(x,f1,f2,trace.it=TRUE,backfit,epsilon=1e-10,max_iter=100){
+  #it estimates the cov(\hat{\beta}_{GLMM}) using backfitting
   
   require(tibble)
   require("dplyr")
@@ -284,6 +288,7 @@ var_betahat_glmm <-function(x,f1,f2,trace.it=TRUE,backfit,epsilon=1e-10,max_iter
 }
 
 var_betahat_logistic_under_glmm <-function(x,f1,f2,trace.it=TRUE,backfit,cov,logistic_fit_w){
+  #it estimates cov(\hat{\beta}_{logistic}) under glmm
   
   require(tibble)
   require("dplyr")
